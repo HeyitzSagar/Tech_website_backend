@@ -6,10 +6,10 @@ import { UserRouter } from "./routes/User.js";
 dotenv.config();
 
 const app = express();
+app.use(cors());
 connectDB();
 app.use(express.json())
 app.use('/auth', UserRouter)
-app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Starting the first api !");
